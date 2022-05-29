@@ -4,7 +4,9 @@
 import os
 import sys
 import shutil
+import construct
 from pathlib import Path
+from functools import partial
 
 
 def env_to_path(_ENV) -> Path:

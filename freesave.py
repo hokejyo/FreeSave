@@ -10,7 +10,7 @@ class FreeSave(object):
     def __init__(self):
         self.ui = FreeSaveGUI()
 
-    def default_link_to_custom(_default, _custom):
+    def default_migrate_to_custom(_default, _custom):
         """
         @brief      迁移并创建软链接
 

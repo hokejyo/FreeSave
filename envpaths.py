@@ -3,7 +3,7 @@
 from utils import *
 
 
-class SysPaths(object):
+class EnvPaths(object):
 
     ENV_LS = [
         'ALLUSERSPROFILE',
@@ -19,11 +19,11 @@ class SysPaths(object):
         'TMP',
         'USERPROFILE',
         # 'COMSPEC',
-        'HOMEDRIVE',
-        'SystemDrive',
         # 'HOMEPATH',
         'SystemRoot',
-        'WINDIR'
+        'WINDIR',
+        'HOMEDRIVE',
+        'SystemDrive'
     ]
 
     def __init__(self, _path):
@@ -34,13 +34,13 @@ class SysPaths(object):
         """
         @brief      分割路径为环境路径和相对路径
 
-        @return     可能的 系统路径：相对路径 字典
+        @return     可能的 环境路径：相对路径 字典
         """
         _parents = [str(_parent) for _parent in self._path.parents]
         env_repaths_dict_ = {}
         for _ENV, true_path in self.env_truepaths.items():
             if str(true_path) in _parents:
-                repath = self._path.relative_to(true_path)
+                repath = str(self._path.relative_to(true_path))
                 env_repaths_dict_[_ENV] = repath
         return env_repaths_dict_
 
